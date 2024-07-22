@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc" >
+   <Dialog
+      id="helloDialog"
+      title="Precintos">
+	
+	  <Table id="PrecintoTable" fixedLayout="true" growing="true"  growingThreshold="7" items="{PrecintoModel>/}" >
+		<columns>
+			<Column>
+				<Label text="{i18n>Cisterna}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Precinto_Ini}"/>
+			</Column>
+            <Column>
+				<Label text="{i18n>Precinto_Final}"/>
+			</Column>
+			
+		</columns>
+		<items>
+			<ColumnListItem >
+				<cells>
+					<Text text="{PrecintoModel>Cisterna}"/>
+
+					<Text text="{PrecintoModel>Precinto_Ini}"/>
+
+                    <Text text="{PrecintoModel>Precinto_Fin}"/>
+
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	<HBox id="hb" alignItems="End" width="auto" justifyContent="End" height="auto" alignContent="End" direction="Row" >				
+	
+	<Button id="BTN" text="Cerrar"  type="Emphasized" press="CerrarDialogo" class="sapUiMediumMarginEnd"></Button>
+	
+	</HBox>
+   </Dialog>
+</core:FragmentDefinition>

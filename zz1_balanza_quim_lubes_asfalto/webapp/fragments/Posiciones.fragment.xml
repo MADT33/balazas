@@ -1,0 +1,84 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc" >
+   <Dialog
+      id="helloDialog2"
+      title="Posiciones">
+	
+	 <Table id="TablePos" fixedLayout="true" growing="true"  growingThreshold="7" items="{PocisionesModel>/}" >
+		<columns>
+			<Column>
+				<Label text="{i18n>Balanza_Carga}"/>
+
+			</Column>
+			<Column>
+				<Label text="{i18n>Cantidad_Entrega}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Codigo_Material}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Des_Material}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Entrega}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Num_Transporte}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Peso_Final}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Peso_Neto}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Peso_Tara}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Posicion_Entrega}"/>
+			</Column>
+			<Column>
+				<Label text="{i18n>Posicion_Transporte}"/>
+
+			</Column>
+			<Column>
+				<Label text="{i18n>Status_Procesado}"/>
+
+			</Column>
+			<Column>
+				<Label text="{i18n>Unidad_Medida}"/>
+
+			</Column>
+			
+		</columns>
+		<items>
+			<ColumnListItem type="Active">
+				<cells>
+					<Text text="{PocisionesModel>Balanza_Carga}"/>
+					<Text text="{PocisionesModel>Cantidad_Entrega}"/>
+					<Text text="{PocisionesModel>Codigo_Material}"/>
+					<Text text="{PocisionesModel>Des_Material}"/>
+					<Text text="{PocisionesModel>Entrega}"/>
+					<Text text="{PocisionesModel>Num_Transporte}"/>
+					<Text text="{PocisionesModel>Peso_Final}"/>
+					<Text text="{PocisionesModel>Peso_Neto}"/>
+					<Text text="{PocisionesModel>Peso_Tara}"/>
+					<Text text="{PocisionesModel>Posicion_Entrega}"/>
+					<Text text="{PocisionesModel>Posicion_Transporte}"/>
+					<Text text="{PocisionesModel>Status_Procesado}"/>
+					<Text text="{PocisionesModel>Unidad_Medida}"/>
+					
+
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	<HBox id="hb2" alignItems="End" width="auto" justifyContent="End" height="auto" alignContent="End" direction="Row" >				
+	
+	<Button id="BTNPos" text="Cerrar"  type="Emphasized" press="CerrarDialogo" class="sapUiMediumMarginEnd"></Button>
+	
+	</HBox> 
+   </Dialog>
+</core:FragmentDefinition>

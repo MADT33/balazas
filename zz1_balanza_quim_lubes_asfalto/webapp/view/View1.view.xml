@@ -1,0 +1,146 @@
+<mvc:View controllerName="ypf.zz1balanzaquimlubesasfalto.controller.View1"
+    xmlns="sap.ui.table"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:m="sap.m"
+        xmlns:u="sap.ui.unified"
+        xmlns:core="sap.ui.core"
+        height="100%">
+   <m:Page
+            showHeader="false"
+            enableScrolling="false">
+        <m:content>       
+          
+                    <m:OverflowToolbar style="Clear">
+                        <m:Title id="title" text="Módulo de Balanza"/>
+                        <m:ToolbarSpacer/>
+                        <m:HBox direction="Row" alignItems="Center" justifyContent="Center" >
+                         <m:Label text="Num Transporte:" required="true" class="margin"></m:Label>                       
+						      <m:Input id="In1" width="5rem" type="Number" change="onChangeNumTransporte" class="margin"></m:Input>                      
+                         <m:Button id="BTN2" text="{i18n>Enviar}" class="margin" type="Emphasized" icon="sap-icon://accept" press="onEnviar"/>  
+                         <m:Button id="BTNR" text="{i18n>Refrescar}"  type="Emphasized" enabled="false" icon="sap-icon://refresh" press="onEnviar"/>                  
+                        </m:HBox>
+                    </m:OverflowToolbar>    
+            
+        </m:content>
+           <m:Panel id="PanelTabla"  width="auto" class="sapUiResponsiveMargin">
+               <m:Table   items="{ path:'Inicial>/' }"  id="TablaInicial" >
+                 <m:columns>
+                   <m:Column width="5.7rem" >
+                      <m:Text text="Transporte"></m:Text>
+
+                   </m:Column>     
+                   <m:Column width="5.3rem"  >
+                      <m:Text text="Fecha"></m:Text>
+                   </m:Column>          
+                   <m:Column width="5rem" >
+                      <m:Text text="Hora"></m:Text>
+                   </m:Column> 
+                   <m:Column width="7rem" >
+                      <m:Text text="Transportista"></m:Text>
+                   </m:Column>   
+                   <m:Column width="7rem" >
+                      <m:Text text="Codigo Trans"></m:Text>
+                   </m:Column>    
+                   <m:Column width="5rem" >
+                      <m:Text text="Vehículo"></m:Text>
+                   </m:Column>    
+                    <m:Column width="7rem" >
+                      <m:Text text="Patente Acoplado"></m:Text>
+                   </m:Column>    
+                   <m:Column width="7rem" >
+                      <m:Text text="Tolerancia Min"></m:Text>
+                   </m:Column> 
+                   <m:Column width="7rem" >
+                      <m:Text text="Tolerancia Max"></m:Text>
+                   </m:Column> 
+                    <m:Column width="7rem" >
+                    
+                   </m:Column> 
+                    <m:Column width="7rem" >
+                 
+                   </m:Column> 
+                 </m:columns>
+                 <m:items>
+                 <m:ColumnListItem>
+                   <m:cells>
+                        <m:Text text="{Inicial>Transporte}"/>
+                         <m:Text text="{Inicial>Fecha}"/>
+                          <m:Text text="{Inicial>Hora}"/>
+                           <m:Text text="{Inicial>Transportista}"/>
+                            <m:Text text="{Inicial>Codigo_Trans}"/>
+                            <m:Text text="{Inicial>Vehicle}"/>
+                          <m:Text text="{Inicial>Patente_Acoplado}"/>
+                           <m:Text text="{Inicial>Tolerancia_Min}"/>
+                            <m:Text text="{Inicial>Tolerancia_Max}"/>
+                            <m:Button id="BTNPociciones" text="Posiciones" press="VerPosiciones"></m:Button>
+                             <m:Button id="BTNPrecintos" text="Precintos"  press="VerPrecintos"></m:Button>
+
+                  </m:cells>
+                  </m:ColumnListItem>
+                 </m:items>             
+                                             
+               </m:Table>
+               </m:Panel>
+               <m:Panel id="Panel_LU_AS"  width="auto" class="sapUiResponsiveMargin" visible="false">
+               <m:Table   items="{ path:'ProcesoLU_AS>/' }"  id="Table_BLU_AS">
+                 <m:columns>
+                   <m:Column width="10rem" >
+                      <m:Text text="Proceso"></m:Text>
+                   </m:Column>  
+                     <m:Column width="10rem" >
+                      <m:Text text="Datos"></m:Text>
+                   </m:Column>        
+                   <m:Column width="10rem"  >
+                      <m:Text text="Status"></m:Text>
+                   </m:Column>          
+                   <m:Column width="10rem" >
+                      <m:Text text="Action"></m:Text>
+                   </m:Column>   
+                 </m:columns>
+                 <m:items>
+                 <m:ColumnListItem>
+                   <m:cells>
+                        <m:Text text="{ProcesoLU_AS>proceso}"/>
+                        <m:Text text="{ProcesoLU_AS>datos}"/>
+                        <m:ObjectStatus  text="{ProcesoLU_AS>status}" state="{path:'ProcesoLU_AS>status' , formatter: '.formatter.formatterColor'}"/>                       
+                        <m:Button icon="sap-icon://flag" enabled="true" press="onPressPanel2" type="Emphasized" id="BTN3"/>
+                  </m:cells>
+                  </m:ColumnListItem>
+                 </m:items>             
+                </m:Table>
+               </m:Panel>
+
+                 <m:Panel id="Panel_BQ" visible="false" width="auto" class="sapUiResponsiveMargin" >
+               <m:Table   items="{ path:'ProcesoBQ>/' }"  id="Table_BQ" >
+                 <m:columns>
+                   <m:Column width="10rem">
+                      <m:Text text="Proceso"></m:Text>
+                   </m:Column>    
+                    <m:Column width="10rem">
+                      <m:Text text="Dato"></m:Text>
+                   </m:Column>  
+                  <m:Column width="15rem" >
+                   </m:Column>    
+                   <m:Column width="10rem"  >
+                      <m:Text text="Status"></m:Text>
+                   </m:Column>          
+                   <m:Column width="10rem" >
+                      <m:Text text="Action"></m:Text>
+                   </m:Column>   
+                 </m:columns>
+                 <m:items>
+                 <m:ColumnListItem>
+                   <m:cells>
+                        <m:Text text="{ProcesoBQ>proceso}"/>
+                          <m:Text text="{ProcesoBQ>datos}"/>
+                             <m:Button  type="Default" width="10rem" text="Consultar a IFIX" id="BTN6" class="color" visible="false" press="onPressIfix"/>
+                        <m:ObjectStatus  text="{ProcesoBQ>status}" state="{path:'ProcesoBQ>status' , formatter: '.formatter.formatterColor'}"/>
+                        <m:Button icon="sap-icon://flag" type="Emphasized" enabled="true" id="BTN5" class="color" press="onPressPanel3"/>
+                  </m:cells>
+                  </m:ColumnListItem>
+                 </m:items>                          
+               </m:Table>
+               </m:Panel>
+    </m:Page>
+
+</mvc:View>

@@ -1,0 +1,30 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc"> 
+
+   <Dialog
+      id="helloDialog"
+      title="Carga Manual Peso Inicial" >
+
+      <HBox id="Hb2" direction="Row">
+      <VBox>
+       <Label text="Posicion de Entrega: " class="sapUiTinyMarginBegin sapUiTinyMarginTop"></Label>
+       <Input id="InPos" width="10rem" type="Number" maxLength="6" class="sapUiTinyMarginBegin" ></Input>     
+       <Label text="Peso:"  class="sapUiTinyMarginBegin"></Label>
+       <Input id="InPeso" width="10rem" maxLength="17" class="sapUiTinyMarginBegin sapUiTinyMarginBottom" ></Input> 
+        <Label text="Unidad de Medida:"  class="sapUiTinyMarginBegin"></Label>
+       <Input id="InUnitMedida" width="10rem" type="Text" maxLength="3" class="sapUiTinyMarginBegin sapUiTinyMarginBottom"></Input>
+        <Label text="Balanza:"  class="sapUiTinyMarginBegin"></Label>
+       <Input id="InBalanza" width="10rem" type="Text" maxLength="2" class="sapUiTinyMarginBegin sapUiTinyMarginBottom"></Input>   
+          </VBox>    
+      </HBox>
+
+	
+	<HBox id="hb2" alignItems="End" width="auto" justifyContent="End" height="auto" direction="Row" >				
+	
+	<Button id="FBTN1" text="Cerrar"  type="Emphasized" press="CerrarDialogo" class="sapUiTinyMarginEnd"></Button>
+	<Button id="FBTN2" text="Enviar"  type="Emphasized" press="onEnviarPesadaInicial" class="sapUiTinyMarginEnd"></Button>
+	</HBox>
+   </Dialog>
+</core:FragmentDefinition>

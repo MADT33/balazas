@@ -1,0 +1,61 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc"> 
+
+   <Dialog      
+        id="helloDialog"
+		afterClose=".afterClose"
+        title="Carga Manual Cierre de  Viaje">
+
+      <HBox id="Hb2" direction="Row">
+      <VBox>
+      <Table id="idTable"  items="{ path:'AlmacenModel>/' }"  busyIndicatorDelay="0" 
+				growing="true" growingScrollToLoad="true" width="50rem"  growingThreshold="8">
+			
+				<columns>
+					<Column demandPopin="true" width="5rem">
+						<Text text="{i18n>Codigo_Material}"/>
+					</Column>
+                    <Column demandPopin="true"  width="5rem">
+						<Text text="{i18n>Posicion_Entrega}"/>
+					</Column>
+                    <Column demandPopin="true"  width="5rem">
+						<Text text="{i18n>Material}"/>
+					</Column>  
+					<Column demandPopin="true"  width="5rem">
+						<Text text="{i18n>Almacen}"/>
+					</Column>  
+					<Column demandPopin="true"  width="5rem">
+						<Text text="{i18n>Lote}"/>
+					</Column>  
+					
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{AlmacenModel>Codigo_material}"/>
+							<Text text="{AlmacenModel>Posicion_entrega}"/>
+							<Text text="{AlmacenModel>Des_material}"/>	
+							
+                            <Input id="InAlmacen" width="5rem" type="Text" maxLength="4" class="sapUiTinyMarginBegin" ></Input>
+							<Input id="InLote" width="5rem"  type="Text"   maxLength="4" class="sapUiTinyMarginBegin" ></Input>    
+							
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>		
+
+
+      
+          </VBox>    
+      </HBox>
+
+	
+	<HBox id="hb2" alignItems="End" width="auto" justifyContent="End" height="auto" direction="Row" >				
+	
+	<Button id="FBTN1" text="Cerrar"  type="Emphasized" press="CerrarDialogoAlmacen" class="sapUiTinyMarginEnd"></Button>
+	<Button id="FBTN2" text="Enviar"  type="Emphasized" press="onEnviarAlmacen" class="sapUiTinyMarginEnd"></Button>
+	</HBox>
+   </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,65 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc"> 
+
+   <Dialog
+      id="Despacho"
+      title="ifix - Consulta despacho Cargadero" >
+
+        <Table id="Consulta" fixedLayout="true" growing="true"  growingThreshold="7" items="{IfixConsultaModel>/}" >
+		<columns>
+          <Column>
+				<Label text="{i18n>Num_Transporte}"/>
+			</Column>
+         
+			<Column>
+				<Label text="{i18n>FechaIni}"/>
+			</Column>
+
+			<Column>
+				<Label text="{i18n>HoraIni}"/>
+			</Column>
+
+			<Column>
+				<Label text="{i18n>Demsmasico}"/>
+			</Column>
+
+			<Column>
+				<Label text="{i18n>Medmasico}"/>
+			</Column>
+
+			<Column>
+				<Label text="{i18n>Producto}"/>
+			</Column>
+
+			<Column>
+				<Label text="{i18n>Tempmasico}"/>
+			</Column>
+
+		</columns>
+		<items>
+			<ColumnListItem type="Active">
+				<cells>
+					<Text text="{IfixConsultaModel>Num_Transporte}"/>
+					<Text text="{IfixConsultaModel>FechaIni}"/>
+					<Text text="{IfixConsultaModel>HoraIni}"/>
+					<Text text="{IfixConsultaModel>Demsmasico}"/>
+					<Text text="{IfixConsultaModel>Medmasico}"/>
+					<Text text="{IfixConsultaModel>Producto}"/>
+					<Text text="{IfixConsultaModel>Tempmasico}"/>
+
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+
+
+<HBox id="hb10" alignItems="End" width="auto" justifyContent="End" height="auto" direction="Row" >				
+	
+	<Button id="FBTN10" text="Cerrar"  type="Emphasized" press="CerrarDialogo" class="sapUiTinyMarginEnd"></Button>
+	
+	</HBox>
+
+         </Dialog>
+</core:FragmentDefinition>
