@@ -36,10 +36,10 @@
 						<cells>
 							<Text text="{AlmacenModel>Codigo_material}"/>
 							<Text text="{AlmacenModel>Posicion_entrega}"/>
-							<Text text="{AlmacenModel>Des_material}"/>	
-							
+							<Text text="{AlmacenModel>Des_material}"/>								
                             <Input id="InAlmacen" width="5rem" type="Text" maxLength="4" class="sapUiTinyMarginBegin" ></Input>
-							<Input id="InLote" width="5rem"  type="Text"   maxLength="4" class="sapUiTinyMarginBegin" ></Input>    
+							<Input id="InLote" width="5rem"  type="Text"   maxLength="10" class="sapUiTinyMarginBegin" ></Input> 
+							<Text text="{AlmacenModel>LoteFlag}" visible="false"/>   
 							
 						</cells>
 					</ColumnListItem>

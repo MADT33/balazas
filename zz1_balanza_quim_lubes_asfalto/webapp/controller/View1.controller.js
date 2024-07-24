@@ -482,43 +482,48 @@ sap.ui.define([
                 var that = this;
                 var AlmacenModel = this.getView().getModel("AlmacenModel").oData;
                 var loteModel = this.getView().getModel("LoteModel");
+                var oView = this.getView();
 
                 
-                if (!this.fragmento) {
-                this.fragmento = sap.ui.xmlfragment("ypf.zz1balanzaquimlubesasfalto.fragments.cargaManualFinalViaje", this);
-                this.getView().addDependent(this.fragmento);
-                //var lote = this.fragmento.mAggregations.content[0].mAggregations.items[0].mAggregations.items[0].mBindingInfos.items.template.mAggregations.cells[4];
-
-
-                var oColums = sap.ui.getCore().byId("idTable").getItems("cells");
-                var obj = [];
-
-
-                for (let i = 0; i < oColums.length; i++) {
-                    for (let j = 0; j < AlmacenModel.length; j++) {
-
-                        if(i == j){
-                        var oItems = oColums[i].mAggregations.cells[4];
-                        var objItem = {};
-                        objItem.objInput = oItems;
-                        objItem.flag = AlmacenModel[j];
-                        obj.push(objItem);
-                    }}
-                };
-                ////////////////////////////////////////////////////////////////////////////////////////////////
-                
-
-                obj.forEach(function (comp, i) {
-                    comp.objInput.setEditable(true);
-
-                    if (comp.flag.LoteFlag == "G") {
-                        comp.objInput.setEditable(false);
+                    if (!this.pDialog) {
+                      this.pDialog = this.loadFragment({
+                        name: "ypf.zz1balanzaquimlubesasfalto.fragments.cargaManualFinalViaje"
+                      });
                     }
-                })
+                    this.pDialog.then(function (oDialog) {
+                    //var oColums = sap.ui.getCore().byId("idTable").getItems("cells");
+                    var oColums = oDialog.mAggregations.content[0].mAggregations.items[0].mAggregations.items[0].mAggregations.items;
+                    var obj = [];
 
-                ////////////////////////////////////////////////////////////////////////////////////////////////           
-            }
-                this.fragmento.open();
+                    for (let i = 0; i < oColums.length; i++) {
+                        for (let j = 0; j < AlmacenModel.length; j++) {
+
+                            if (i == j) {
+                                var oItems = oColums[i].mAggregations.cells[4];
+                                var objItem = {};
+                                objItem.objInput = oItems;
+                                objItem.flag = AlmacenModel[j];
+                                obj.push(objItem);
+                            }
+                        }
+                    };
+
+                    obj.forEach(function (comp, i) {
+                        comp.objInput.setEditable(true);
+
+                        if (comp.flag.LoteFlag == "G") {
+                            comp.objInput.setEditable(false);
+                            comp.objInput.setEnabled(false); 
+                                               
+
+                        }
+                    })
+
+
+
+                      oDialog.open();
+                    });
+         
             },
             VerPosiciones: function () {
 
@@ -657,16 +662,11 @@ sap.ui.define([
                         break;
                 };
 
+
             },
-            afterClose: function (oEvent) {
-                oEvent.getSource().destroy;
-              },
-            CerrarDialogoAlmacen: function () {
-                
-                this.fragmento.close();
-                sap.ui.getCore().byId("helloDialog").close();
-               
-                
+
+            CerrarDialogoAlmacen: function () {               
+                this.byId("helloDialog").close();
             },
             CerrarDialogo: function () {
 
@@ -919,19 +919,20 @@ sap.ui.define([
                 var that = this;
                 var oModel = this.getOwnerComponent().getModel();
                 var Num_Tranporte = this.getView().getModel("Inicial").oData[0].Transporte;
-                //var Almacen = sap.ui.getCore().byId("InAlmacen").getValue();
+               
 
                 var oTable = this.getView().byId("idTable");
                 var oItems = oTable.getItems();
                 var EnviarObj = [];
 
 
-
+     
                 for (var i = 0, len = oItems.length; i < len; i++) {
                     var obj = {
                         Posicion: oItems[i].getAggregation("cells")[1].getProperty("text"),
                         Almacen: oItems[i].getAggregation("cells")[3].getProperty("value"),
-                        Lote: oItems[i].getAggregation("cells")[4].getProperty("value")
+                        Lote: oItems[i].getAggregation("cells")[4].getProperty("value"),
+                        LoteFlag : oItems[i].oParent.mAggregations.items[i].mAggregations.cells[5].mProperties.text
                     }
                     EnviarObj.push(obj);
                 }
